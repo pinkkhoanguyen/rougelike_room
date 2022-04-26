@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] Bullet bullet;
@@ -142,7 +142,8 @@ public class Player : MonoBehaviour
         else if (directionMoving.y < 0) target.y -= distanceForCheckCollistionWall;
 
         Collider2D colider = Physics2D.OverlapCircle(target, 0.1f);
-        if (colider != null && colider.CompareTag("collision")) {
+        if (colider != null && colider.CompareTag("collision"))
+        {
             if (directionMoving.x != 0) directionMoving.x = 0;
             if (directionMoving.y != 0) directionMoving.y = 0;
         }
