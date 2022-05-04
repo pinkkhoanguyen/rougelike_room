@@ -6,6 +6,7 @@ namespace Player
 {
     public class Moving_PC_V1 : IMoving
     {
+
         private Vector2 direction;
         private Vector2 oldDirection;
         private int horizontalDirection = 0;
@@ -50,6 +51,8 @@ namespace Player
             else if (verticalDirection != 0)
                 direction.y = verticalDirection > 0 ? 1 : -1;
             setAnimation();
+            if (direction.x + direction.y != 0 && spirit.State != Spirit.WAITING_SHOT)
+                spirit.State = Spirit.FOLLOW_PLAYER;
         }
         private void setAnimation() {
             if (direction.x != 0 && direction.y != 0)
